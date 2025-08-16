@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext.jsx";
 import { formatPrice } from "../utils/format.js";
 import QuantityInput from "../components/QuantityInput.jsx";
+import SuggestedProducts from "./SuggestedProducts.jsx";
 import { useMemo } from "react";
 import useAnimatedNumber from "../hooks/useAnimatedNumber.js";
 
@@ -24,6 +25,7 @@ export default function Cart() {
             Alışverişe Dön
           </Link>
         </div>
+        <SuggestedProducts />
       </section>
     );
   }
