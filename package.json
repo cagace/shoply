@@ -1,14 +1,14 @@
 {
   "name": "shoply",
   "private": true,
-  "homepage": "https://cagace.github.io/shoply",
+  "homepage": "https://cagace.github.io/shoply/",
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "dev": "vite",
     "build": "vite build",
+    "predeploy": "vite build && cp dist/index.html dist/404.html",
+    "deploy": "gh-pages -d dist",
     "lint": "eslint .",
     "preview": "vite preview"
   },
