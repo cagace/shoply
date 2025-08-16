@@ -46,7 +46,7 @@ export default function Products() {
   const onMouseUp = () => {
     isMouseDown.current = false;
     setDragging(false);
-  };
+  };			
 
   // Ok butonları için kaydırma
   const scrollByPage = (dir = 1) => {
