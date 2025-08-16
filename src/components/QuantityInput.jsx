@@ -1,4 +1,5 @@
-export default function QuantityInput({ value, onChange, min = 1 }) {
+// src/components/QuantityInput.jsx
+export default function QuantityInput({ value, onChange, min = 0 }) {
   return (
     <div className="inline-flex items-center rounded-xl border border-gray-300 overflow-hidden">
       <button
@@ -6,7 +7,9 @@ export default function QuantityInput({ value, onChange, min = 1 }) {
         className="px-3 py-2 text-sm transition-opacity hover:opacity-70"
         onClick={() => onChange(Math.max(min, value - 1))}
         aria-label="Azalt"
-      >−</button>
+      >
+        −
+      </button>
       <input
         className="w-12 text-center outline-none py-2 text-sm"
         value={value}
@@ -20,7 +23,9 @@ export default function QuantityInput({ value, onChange, min = 1 }) {
         className="px-3 py-2 text-sm transition-opacity hover:opacity-70"
         onClick={() => onChange(value + 1)}
         aria-label="Arttır"
-      >+</button>
+      >
+        +
+      </button>
     </div>
   );
 }

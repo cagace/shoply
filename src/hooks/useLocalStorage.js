@@ -1,10 +1,17 @@
+// src/hooks/useLocalStorage.js
 import { useEffect, useState } from "react";
 
 export default function useLocalStorage(key, initialValue) {
   const [value, setValue] = useState(() => {
     try {
       const raw = localStorage.getItem(key);
-      return raw ? JSON.parse(raw) : initialValue;
+      if (!raw) return initialValue;
+      const parsed = JSON.parse(raw);
+      // sadece geçerli tipleri kabul et
+      const ok =
+        parsed !== null &&
+        (Array.isArray(parsed) || typeof parsed === "object");
+      return ok ? parsed : initialValue;
     } catch {
       return initialValue;
     }
@@ -12,7 +19,11 @@ export default function useLocalStorage(key, initialValue) {
 
   useEffect(() => {
     try {
-      localStorage.setItem(key, JSON.stringify(value));
+      if (value === undefined) {
+        localStorage.removeItem(key);
+      } else {
+        localStorage.setItem(key, JSON.stringify(value));
+      }
     } catch {}
   }, [key, value]);
 
