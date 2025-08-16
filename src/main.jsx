@@ -9,7 +9,11 @@ import App from "./App.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+<<<<<<< HEAD
     <HashRouter>
+=======
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
+>>>>>>> e355770 (first commit)
       <AuthProvider>
         <CartProvider>
           <RouteProgress />
