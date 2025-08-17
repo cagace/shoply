@@ -69,6 +69,12 @@ export default function Cart() {
                   onChange={(v) => updateQty(i.id, v)}
                 />
               </div>
+              <div className="flex-1 min-w-0">
+                {i.size && (
+                  <div className="text-xs text-gray-500 mt-0.5">Beden: {i.size}</div>
+                )}
+              </div>
+
             </div>
           ))}
         </div>
